@@ -1,0 +1,7 @@
+{
+  "name": "act_API",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
