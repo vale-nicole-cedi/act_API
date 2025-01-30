@@ -7,11 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class NasaService {
   private apiUrl = 'https://api.nasa.gov/planetary/apod';
-  private apiKey = 'e1NNMF2QtlT9o0gENPmf9AyBjyJWMYm3ymnT6Pqa';
-  
-  constructor(private http: HttpClient) { }
+  private apiKey = 'l14VzBlS9L2U0tt86lzH1apI1Kuddk3be1dhc9RT';
 
-  getImageOfTheDay(): Observable<any> {
-    return this.http.get(`${this.apiUrl}?api_key=${this.apiKey}`);
+  constructor(private http: HttpClient) {}
+
+  // Método para obtener la imagen del día para una fecha específica
+  getImageOfTheDay(date: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}?api_key=${this.apiKey}&date=${date}`);
   }
 }
+

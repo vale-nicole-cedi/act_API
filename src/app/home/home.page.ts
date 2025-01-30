@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { NasaService } from '../nasa.service';
 
@@ -8,11 +9,15 @@ import { NasaService } from '../nasa.service';
   standalone: false,
 })
 export class HomePage {
+
+  selectedDate: string = ''; 
   imageData: any;
+
   constructor(private nasaService: NasaService) {}
 
-  ngOnInit() {
-    this.nasaService.getImageOfTheDay().subscribe((data) => {
+  loadImageOfTheDay() {
+    const formattedDate = this.selectedDate.split('T')[0]; 
+    this.nasaService.getImageOfTheDay(formattedDate).subscribe((data) => {
       this.imageData = data;
     });
   }
